@@ -1,2 +1,2 @@
 # ps_create-module
-Lear PrestaShop 
+Learn PrestaShop 
