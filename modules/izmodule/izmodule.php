@@ -46,10 +46,22 @@ class IzModule extends Module {
         )
             return false;
 
+        // TODO: add new tab
+        $tab                                     = new Tab();
+        $tab->name[$this->context->language->id] = 'My Tab';
+        $tab->module                             = self::MODULE_NAME;
+        $tab->class_name                         = 'AdminGcbulk';
+        $tab->id_parent                          = 0; // Root tab
+        $tab->add();
+
+
         return true;
     }
 
     public function uninstall() {
+        // Uninstall Tabs
+        $tab = new Tab((int)Tab::getIdFromClassName('AdminGcbulk'));
+        $tab->delete();
 
         if (!parent::uninstall() ||
             !Configuration::deleteByName(self::MODULE_NAME)
