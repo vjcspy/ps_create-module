@@ -144,8 +144,10 @@ class IzModule extends Module {
         /*TODO: assign data to HOOK View */
         $this->context->smarty->assign(
             [
-                'my_module_name' => Configuration::get(self::MODULE_NAME),
-                'my_module_link' => $this->context->link->getModuleLink(self::MODULE_NAME, 'display')
+                'my_module_name'    => Configuration::get(self::MODULE_NAME),
+                'my_module_link'    => $this->context->link->getModuleLink(self::MODULE_NAME, 'display'),
+                'my_module_message' => $this->l('This is a simple text message')
+                // Do not forget to enclose your strings in the l() translation method
             ]
         );
 
